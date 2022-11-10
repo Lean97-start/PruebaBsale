@@ -1,0 +1,30 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    background-color: aquamarine;
+    height: 100%;
+}
+
+.columnIndexCategories{
+    grid-column: 1;
+    background-color: coral;
+    padding: 10px;
+
+}
+
+.sectionProducts{
+    grid-column: 2;
+    
+    background-color: darkgoldenrod;
+}
+
+#containerProducts{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+}
