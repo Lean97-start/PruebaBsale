@@ -4,7 +4,7 @@ const express = require('express');
 const {initDB} = require('./Config/MySql');
 const cors = require('cors');
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4105;
 
 const app = express();
 initDB();

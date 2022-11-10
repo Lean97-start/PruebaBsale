@@ -1,15 +1,21 @@
 import { productsDB } from "../Query/Products";
 import { Product } from "../interface/Product.Interface";
 
-
-export async function searchProductsByCategory(category: string) {
-  let productsByCategory: Array<Product> = [];
-  let products: any = await productsDB();
-  products.forEach((element: Product) => {
-    if (element.category.toString() === category) {
-        productsByCategory.push(element)
+export async function searchProducts(nameProduct: string) {
+  try {
+    let productsSearched: Array<Product> = [];
+    if (!nameProduct) {
+      return await productsDB();
+    } else {
+      let products: any = await productsDB();
+      products.forEach((element: Product) => {
+        if (element.name.includes(nameProduct.toUpperCase())) {
+          productsSearched.push(element);
+        }
+      });
+      return (productsSearched.length)? productsSearched: {Error_message: "NOT_FOUND_PRODUCT"};
     }
-  });
-  console.log(productsByCategory)
-  return productsByCategory
+  } catch (error) {
+    throw error
+  }
 }

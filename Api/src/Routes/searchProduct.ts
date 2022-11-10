@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { searchProductsByCategory } from "../Controllers/searchProduct";
+import { searchProducts } from "../Controllers/searchProduct";
 
 const routerSearch = Router();
 
-routerSearch.post('/', searchProductsByCategory)
+routerSearch.post('/', searchProducts)
 
 export {routerSearch}
