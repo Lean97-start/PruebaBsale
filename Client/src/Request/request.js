@@ -10,6 +10,16 @@ export async function getProductsSearch(valueSearch) {
     .then((data) => data, (rej) => console.log(rej));
 }
 
+export async function getProductsByCategory(category) {
+  return await fetch("http://localhost:4105/filterProduct", {
+    method: "POST",
+    body: `idCategory=${category}`,
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+    .then((response) => response.json())
+    .then((data) => data, (rej) => console.log(rej));
+}
+
 export async function getAllProducts() {
   return await fetch("http://localhost:4105/products", {
     method: "GET",

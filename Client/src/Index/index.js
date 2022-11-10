@@ -30,7 +30,7 @@ async function getCategories(){
     if(allCategories.length){
     allCategories.forEach(category => {
         $(
-            `<a href="#" id="itemCategories" class="list-group-item list-group-item-action">${category.name}</a>`
+            `<a id=${category.id} class="list-group-item list-group-item-action categoryLink">${category.name}</a>`
           ).appendTo(".list-group");
     });
 }
