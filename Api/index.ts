@@ -1,7 +1,7 @@
 require('dotenv/config');
-const { router } = require("./Routes");
+const { router } = require("./src/Routes");
 const express = require('express');
-const {initDB} = require('./Config/MySql');
+const {initDB} = require('./src/Config/MySql');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 4105;
