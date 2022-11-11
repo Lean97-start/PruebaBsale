@@ -20,7 +20,7 @@ export async function getProductsByCategory(category) {
     .then((data) => data, (rej) => console.log(rej));
 }
 
-export async function getAllProducts() {
+export async function   getAllProducts() {
   return await fetch("http://localhost:4105/products", {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

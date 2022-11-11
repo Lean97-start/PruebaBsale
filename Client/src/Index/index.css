@@ -1,30 +1,30 @@
-html,body{
+
+/* CARD */
+@import '../styles/card.css'; 
+
+/* NAVBAR */
+@import '../styles/navBar.css';
+
+/* Categorias y atributos */
+@import '../styles/Categories.css';
+
+/* Configuración general */
+html,
+body {
     height: 100%;
-    margin: 0;
+    background-color: #E5E6E8;
 }
 
-.main{
+.main {
     display: grid;
-    grid-template-columns: 25% 75%;
-    background-color: aquamarine;
-    height: 100%;
+    grid-template-columns: 20vw 80vw;
+    background-color: #E5E6E8;
+    height: 100vh;
 }
 
-.columnIndexCategories{
-    grid-column: 1;
-    background-color: coral;
-    padding: 10px;
-
-}
-
-.sectionProducts{
-    grid-column: 2;
-    
-    background-color: darkgoldenrod;
-}
-
-#containerProducts{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-
+#titleProductos {
+    margin-top: 15vh;
+    font-size: 3rem;
+    color: #edf2f4;
+    text-shadow: 1px 1px 7px #d6d6d6c7;
 }

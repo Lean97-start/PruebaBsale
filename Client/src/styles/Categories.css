@@ -1,0 +1,30 @@
+/* Categorias y atributos */
+
+
+#containerAttibute {
+    position: relative;
+    display: flex;
+    grid-column: 1;
+    background-color: #E5E6E8;
+    
+}
+
+#listAttributes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 10vh;
+}
+
+.list-group {
+    position: fixed;
+    text-align: center;
+    padding-top: 10vh; 
+}
+
+.categoryLink:hover {
+    background-color: #040505;
+}
+
