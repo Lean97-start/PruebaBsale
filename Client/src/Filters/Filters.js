@@ -18,10 +18,11 @@ $(".list-group").on("click", async (e) => {
       }
     }
     productsFiltered = await getProductsByCategory(e.target.id);
-    if (productsFiltered.length) {
+    console.log(productsFiltered)
+    if (productsFiltered.products.length) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
-      productsFiltered.forEach((product) => {
-        $(modelCardProduct(product)).appendTo("#containerProducts");
+      productsFiltered.products.forEach((product) => {
+        $(modelCardProduct(product, productsFiltered.nameCategory)).appendTo("#containerProducts");
       });
     }
   }
