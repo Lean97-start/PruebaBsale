@@ -1,0 +1,19 @@
+{
+  "name": "apibsale",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./api/dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lean97-start/PruebaBsale.git"
+  },
+  "author": "Leandro Morello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lean97-start/PruebaBsale/issues"
+  },
+  "homepage": "https://github.com/Lean97-start/PruebaBsale#readme"
+}
