@@ -15,7 +15,7 @@ export async function searchProducts(nameProduct: string) {
       //   if (element.name.includes(nameProduct.toUpperCase())) {
       //     productsSearched.push(element);
       //   }
-      // });
+      // }); 
       return (productsSearched.length)? productsSearched: {Error_message: "NOT_FOUND_PRODUCT"};
     }
   } catch (error) {
