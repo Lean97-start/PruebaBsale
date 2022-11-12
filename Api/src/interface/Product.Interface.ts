@@ -7,4 +7,8 @@ interface Product {
     category: number;
 }
 
-export {Product}
+interface ProductNameCategory extends Product{
+    nameCategory: string;
+}
+
+export {Product, ProductNameCategory}

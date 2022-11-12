@@ -7,7 +7,7 @@ export function modelCardProduct(product, nameCategory) {
             <div class="cardBodyTemplate">
                 <span class="cardTitleName">${product.name.toUpperCase()}</span>
                 <span class="cardTitlePrice">$${product.price}</span>
-                <span class="cardTitleCategory">${nameCategory.toString()}</span>
+                <span class="cardTitleCategory">${nameCategory.toUpperCase()}</span>
               </div>
               <div id="divButton">
                 <button id="buttonCardCompra" type="button" class="">Comprar</button>
