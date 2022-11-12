@@ -1,55 +1,118 @@
 /* CARDS */
-
-.sectionProducts {
-    display: flex;
-    background-color: #4E6560;
-    flex-direction: column;
-    text-align: center;
-}
-
 .sectionProducts {
     grid-column: 2;
-    border-left: 1.5px solid #92918e;
+    display: flex;
+    background-color: #006d77;
+    flex-direction: column;
+    text-align: center;
 }
 
 #containerProducts {
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
-    margin: 1rem;
     justify-items: center;
-
+    padding: 4rem;
+    padding-top: 2rem;
+    height: 100%;
 }
 
-.card {
-    display: grid;
-    grid-template-rows: 70% 30%;
-    margin: 15px 0px;
-    box-shadow: 0 0 20px 2px black;
-    width: 18rem; 
-    height: auto;
+.cardTemplate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18rem;
+    align-items: center;
+    margin:1rem 0px;
+    border-radius: 10px 10px 40px 40px;
+    background-color: #9dd9d2;
+    box-shadow: 0 0 20px 1px #6d6d6d;
 }
 
-.card:hover {
-    margin: 15px 0px;
-    box-shadow: 0 0 30px 1px #fefae0;
+.cardTemplate:hover {
+    box-shadow: 0 0 20px 1px #fefae0;
     transform: scale(1.05);
+    border-radius: 10px 10px 30px 30px;
 }
 
-.card-img-top {
-    grid-row: 1;
-    inset: 0;
-    width: 50%;
-    height: 50%;
+
+/* IMAGEN DE CARDS */
+#divIMG{
+    position: relative;
+    display: flex;
+    align-content: center;
+    position: relative;
+    width: 18rem;
+    background-color: #fff;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cardImg {
+    display: flex;
+    justify-items: center;
     object-fit: contain;
     transform: .75s;
+    height: 18rem;
+    width: 18rem;
+    border-radius: 10px 10px 0px 0px;
 }
 
-.cardBody{
-    position: relative;
+
+
+/* CUERPO DE LA CARD */
+.cardBodyTemplate{
     grid-row: 2;
-    padding: 0;
-    margin: 0;
-    background-color: #4E6560;
-    
+    padding: 10px;
+    padding-bottom: 0px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #003844;
+    margin: 7px;
+}
+
+#divButton{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0px 0px 50px 50px;
+}
+
+#buttonCardCompra{
+    position: relative;
+    border-radius: 0px 0px 50px 50px;
+    border: 1px solid #1f3e61; 
+    width: 100%;
+    background-color: #274c77;
+    color: #fff;
+    bottom: 0px;
+    height: 2rem;
+}
+
+#buttonCardCompra:hover{
+    position: relative;
+    border-radius: 0px 0px 50px 50px;
+    border: 1px solid #1f3e61; 
+    width: 100%;
+    height: 2rem;
+    background-color: #6096ba;
+    color: #fff;
+}
+
+
+/* TITULOS DEL CUERPO DE LA CARD */
+.cardTitleName{
+    font-weight: bold;
+
+}
+
+.cardTitleCategory{
+    font-weight: 400;
+}
+
+.cardTitlePrice{
+    font-weight: bold;
+    font-size: larger;
 }

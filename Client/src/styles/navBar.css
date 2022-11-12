@@ -21,11 +21,15 @@
 
 #clickButtonSearch{
     border: 1px solid #495250;
-    color: #495250;
+    color: #003844;
 }
 
 #clickButtonSearch:hover{
     background-color: #4E6560;
     border: 1px solid #495250;
     color: #fefae0;
+}
+
+.navbar-brand{
+    padding-left: 5%;
 }

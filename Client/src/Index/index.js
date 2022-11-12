@@ -17,14 +17,14 @@ async function init(){
     if(allCategories.length){
         allCategories.forEach(category => {
             $(
-                `<a id=${category.id} class="list-group-item list-group-item-action categoryLink">${category.name.toUpperCase()}</a>`
+                `<a id=${category.id} class="categoryLink">${category.name.toUpperCase()}</a>`
                 ).appendTo(".list-group");
             });
         }
     if(products.length){
         products.forEach(product => {
             let nameCategory = allCategories.filter((category) => {if(category.id === product.category){return category.name}})
-            $(modelCardProduct(product, nameCategory[0].name)).appendTo("#containerProducts");
+            $(modelCardProduct(product, nameCategory[0].name.toUpperCase())).appendTo("#containerProducts");
         });
     }
 }
