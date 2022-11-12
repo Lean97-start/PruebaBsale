@@ -8,7 +8,12 @@ interface Product {
 }
 
 interface ProductNameCategory extends Product{
-    nameCategory: string;
+    nameCategory?: string;
 }
 
-export {Product, ProductNameCategory}
+interface Category{
+    id: number,
+    name: string
+}
+
+export {Product, ProductNameCategory, Category}

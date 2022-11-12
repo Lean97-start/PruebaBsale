@@ -13,7 +13,8 @@ exports.category = exports.categories = void 0;
 const Category_1 = require("../Query/Category");
 function categories() {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield (0, Category_1.categoriesDB)();
+        let categories = yield (0, Category_1.categoriesDB)();
+        return ((categories) ? categories : [{ id: 0, name: "CATEGORY_NOT_FOUND" }]);
     });
 }
 exports.categories = categories;
