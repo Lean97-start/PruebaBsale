@@ -9,6 +9,7 @@ $(".list-group").on("click", async (e) => {
   if (e.target.id === "") {
     console.log("Null filter");
   } else if(e.target.id === 'allCategories'){
+    //Me traigo todos los productos.
       productsFiltered = await getAllProducts();
       if (productsFiltered.length) {
         $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
@@ -17,8 +18,8 @@ $(".list-group").on("click", async (e) => {
         });
       }
     }
+    //Me traigo los productos filtrados por categoría.
     productsFiltered = await getProductsByCategory(e.target.id);
-    console.log(productsFiltered)
     if (productsFiltered.products.length) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
       productsFiltered.products.forEach((product) => {
