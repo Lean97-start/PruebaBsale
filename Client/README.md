@@ -16,6 +16,8 @@
 - [ ] <strong>Backend</strong>
   - ##### NodeJs, TypeScript, Express, MySql
 
+## Link Deploy:
+- <a href="https://ventasbsale.vercel.app">Tienda BSale</a>
 
 ## Endpoints
   ### GET - Obtener todos los productos.

@@ -16,7 +16,8 @@
 - [ ] <strong>Backend</strong>
   - ##### NodeJs, TypeScript, Express, MySql
 
-
+## Link Deploy:
+- <a href="https://ventasbsale.vercel.app">Tienda BSale</a>
 ## Endpoints
   ### GET - Obtener todos los productos.
   Retorna todos los productos existentes en el sistema y devuelve un arreglo con los resultados. En el caso de no encontrar ningún producto, el backend retorna un mensaje de error y el Fronten muestra el mensaje en pantalla de "Sin Productos".
