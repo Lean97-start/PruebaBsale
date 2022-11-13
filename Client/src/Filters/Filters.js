@@ -16,6 +16,9 @@ $(".list-group").on("click", async (e) => {
         productsFiltered.forEach((product) => {
           $(modelCardProduct(product)).appendTo("#containerProducts");
         });
+        $('body, html').animate({
+          scrollTop: '0px'
+        }, 300);
       }
     }
     //Me traigo los productos filtrados por categoría.
@@ -25,6 +28,27 @@ $(".list-group").on("click", async (e) => {
       productsFiltered.products.forEach((product) => {
         $(modelCardProduct(product)).appendTo("#containerProducts");
       });
+      $('body, html').animate({
+        scrollTop: '0px'
+      }, 300);
     }
   }
 );
+
+$(document).ready(function(){
+
+	$('.ir-arriba').click(function(){
+		$('body, html').animate({
+			scrollTop: '0px'
+		}, 300);
+	});
+
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 0 ){
+			$('.ir-arriba').slideDown(300);
+		} else {
+			$('.ir-arriba').slideUp(300);
+		}
+	});
+
+});

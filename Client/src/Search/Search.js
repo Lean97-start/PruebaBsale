@@ -7,16 +7,23 @@ let productsSearched = [];
 //Para buscar por un nombre de producto
 $("#clickButtonSearch").on("click", async function (event) {
   event.preventDefault();
-  console.log("HOla")
   if (valueInputSearch.value === "") {
-    console.log("Null Input");
+    $('body, html').animate({
+			scrollTop: '0px'
+		}, 300);
+    throw("Null Input");
   } else {
     productsSearched = await getProductsSearch(valueInputSearch.value);
     if (productsSearched.length) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
+      $("#contentInputSearch").val("");
+      $("#titleResult").show();
       productsSearched.forEach((product) => {
         $(modelCardProduct(product)).appendTo("#containerProducts");
       });
+      $('body, html').animate({
+        scrollTop: '0px'
+      }, 300);
     }
   }
 });

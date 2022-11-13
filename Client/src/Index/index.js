@@ -3,6 +3,7 @@ import {getAllCategories, getAllProducts} from "../Request/request.js";
 
 //Función que inicializa toda la app
 async function init(){
+    $("titleResult").hide();
     let allCategories = await getAllCategories();
     let products = await getAllProducts();
     if(allCategories.length){
