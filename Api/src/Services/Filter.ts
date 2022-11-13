@@ -3,6 +3,7 @@ import { categoriesDB } from "../Query/Category";
 import { productsDB } from "../Query/Products";
 import { productWithCategory } from "./FormatProduct";
 
+// Función encargada de traer los productos relacionados a una categoria.
 export async function filterByCategory(idCategory: string) {
   try {
     let productsCategory: Array<Product> = [];
@@ -15,6 +16,7 @@ export async function filterByCategory(idCategory: string) {
       return productsCategory.length? { products: productsCategory }: { error_message: "NOT_FOUND_PRODUCTS_CATEGORY" };
     }
   } catch (error) {
-    throw error;
+    // Si hay un problema con la petición a la base de datos, se genera un error.
+    throw error; 
   }
 }

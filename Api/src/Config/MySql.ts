@@ -8,6 +8,7 @@ interface connectingDB {
   database: string;
 }
 
+//Parámetros para conexión con la base de datos.
 let dataConfigDB: connectingDB = {
   host: process.env.host || "localhost",
   user: process.env.user || "me",
@@ -21,7 +22,8 @@ async function initDB() {
   try {
     connection = mysql.createConnection(dataConfigDB);
 
-    await connection.connect((error: any) => { //Establezco conexión con la DB
+    await connection.connect((error: any) => {
+      //Establezco conexión con la DB
       if (error) {
         console.log("Error connecting. Try again", error);
         initDB();
@@ -30,7 +32,8 @@ async function initDB() {
       }
     });
 
-    connection.on("error", (err: any) => { //Me permitira restablecer la conexión cuando el servicio DB se caiga.
+    connection.on("error", (err: any) => {
+      //Me permitira restablecer la conexión cuando el servicio DB se caiga.
       console.log("Error db", err.code);
       if (err.code === "PROTOCOL_CONNECTION_LOST") {
         initDB();
@@ -38,10 +41,9 @@ async function initDB() {
         throw err;
       }
     });
-
   } catch (e) {
     console.log(e);
   }
 }
 
-export { initDB , connection};
+export { initDB, connection };

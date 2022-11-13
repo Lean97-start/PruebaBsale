@@ -11,10 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getProduct = exports.getAllProducts = void 0;
 const Products_1 = require("../Services/Products");
+// Controller que me permite obtener todos los productos existentes en el sistema.
 const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.send(yield (0, Products_1.AllProducts)());
 });
 exports.getAllProducts = getAllProducts;
+// Controller que me permite obtener un producto con id que coincida con el id del producto pasado por params.
 const getProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.params === null)
         res.status(400).json({ err: "BAD_REQUEST" });

@@ -11,9 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filterByCategory = void 0;
 const Filter_1 = require("../Services/Filter");
+// Controller para filtrar por categoria 
 const filterByCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { idCategory } = req.body;
     const productsCategory = yield (0, Filter_1.filterByCategory)(idCategory);
+    if (productsCategory.error_messageNull) {
+        res.status(400).send(productsCategory);
+    }
+    //Valida la existencia de un mensaje de idCategory igual a null
+    if (productsCategory.error_message) {
+        res.status(404).send(productsCategory);
+    }
+    //Valida la existencia de un error de producto no encontrado.
     res.send(productsCategory);
 });
 exports.filterByCategory = filterByCategory;

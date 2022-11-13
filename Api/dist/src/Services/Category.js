@@ -11,16 +11,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.category = exports.categories = void 0;
 const Category_1 = require("../Query/Category");
+//Funcion encargada de traer las cagorias
 function categories() {
     return __awaiter(this, void 0, void 0, function* () {
         let categories = yield (0, Category_1.categoriesDB)();
-        return ((categories) ? categories : [{ id: 0, name: "CATEGORY_NOT_FOUND" }]);
+        //Si no encuentra categorias, retorna error    
+        return ((categories) ? categories : [{ id: 0, name: "CATEGORIES_NOT_FOUND" }]);
     });
 }
 exports.categories = categories;
+// Funcion encargada de traer una categoria especifica
 function category(id) {
     return __awaiter(this, void 0, void 0, function* () {
         let category = yield (0, Category_1.categoryDB)(id);
+        //Si no encuentra la categoria especificada, retorna error    
         return ((category) ? category : [{ id: 0, name: "CATEGORY_NOT_FOUND" }]);
     });
 }

@@ -9,9 +9,9 @@ function displayGrid(){
 }
 function displayMessageError(){
     document.getElementById('loadingGIF').style.display = "none";
-            document.getElementById("containerProducts").style.display = "none";
-            document.getElementById('divProductNotFound').style.display = "none";
-            document.getElementById('divWithoutProduct').style.display = "block";
+    document.getElementById("containerProducts").style.display = "none";
+    document.getElementById('divProductNotFound').style.display = "none";
+    document.getElementById('divWithoutProduct').style.display = "block";
 }
 
 //Función que inicializa toda la app

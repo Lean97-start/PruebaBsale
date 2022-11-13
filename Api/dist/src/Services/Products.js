@@ -13,6 +13,7 @@ exports.product = exports.AllProducts = void 0;
 const Products_1 = require("../Query/Products");
 const FormatProduct_1 = require("./FormatProduct");
 const Category_1 = require("./Category");
+// Función encargada de traer todos los productos del sistema
 function AllProducts() {
     return __awaiter(this, void 0, void 0, function* () {
         let productsSearched;
@@ -23,6 +24,7 @@ function AllProducts() {
     });
 }
 exports.AllProducts = AllProducts;
+// Función encargada de traer un producto del sistema coincidente con el id pasado por parámetro.
 function product(id) {
     return __awaiter(this, void 0, void 0, function* () {
         let productSearched;

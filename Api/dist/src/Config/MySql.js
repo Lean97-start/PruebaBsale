@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.connection = exports.initDB = void 0;
 require("dotenv/config");
 const mysql = require("mysql");
+//Parámetros para conexión con la base de datos.
 let dataConfigDB = {
     host: process.env.host || "localhost",
     user: process.env.user || "me",
@@ -25,6 +26,7 @@ function initDB() {
         try {
             exports.connection = connection = mysql.createConnection(dataConfigDB);
             yield connection.connect((error) => {
+                //Establezco conexión con la DB
                 if (error) {
                     console.log("Error connecting. Try again", error);
                     initDB();
@@ -34,6 +36,7 @@ function initDB() {
                 }
             });
             connection.on("error", (err) => {
+                //Me permitira restablecer la conexión cuando el servicio DB se caiga.
                 console.log("Error db", err.code);
                 if (err.code === "PROTOCOL_CONNECTION_LOST") {
                     initDB();
