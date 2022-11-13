@@ -22,7 +22,7 @@
 .list-group {
     position: fixed;
     text-align: center;
-    padding-top: 10vh; 
+    padding-top: 10vh;
 }
 
 .categoryLink{
@@ -32,6 +32,7 @@
     border: 1px solid #f4a261;
     text-decoration: none;
     color: #682f01;
+    cursor: pointer;
 }
 
 .categoryLink:hover {

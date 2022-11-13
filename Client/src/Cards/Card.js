@@ -1,3 +1,5 @@
+
+// Función para formatear la estructura de una card.
 export function modelCardProduct(product) {
   return `
           <div class="cardTemplate">
