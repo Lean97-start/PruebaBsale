@@ -1,7 +1,8 @@
-
+// let HOST =" https://eccomercebsale.herokuapp.com" || "http://localhost:4105";
+let HOST =" https://eccomercebsale.herokuapp.com" ;
 
 export async function getProductsSearch(valueSearch) {
-  return await fetch("http://localhost:4105/search", {
+  return await fetch(`${HOST}/search`, {
     method: "POST",
     body: `nameProduct=${valueSearch}`,
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -11,7 +12,7 @@ export async function getProductsSearch(valueSearch) {
 }
 
 export async function getProductsByCategory(category) {
-  return await fetch("http://localhost:4105/filterProduct", {
+  return await fetch(`${HOST}/filterProduct`, {
     method: "POST",
     body: `idCategory=${category}`,
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -21,7 +22,7 @@ export async function getProductsByCategory(category) {
 }
 
 export async function   getAllProducts() {
-  return await fetch("http://localhost:4105/products", {
+  return await fetch(`${HOST}/products`, {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
@@ -30,7 +31,7 @@ export async function   getAllProducts() {
 }
 
 export async function getAllCategories() {
-  return await fetch("http://localhost:4105/category", {
+  return await fetch(`${HOST}/category`, {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })

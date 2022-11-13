@@ -7,7 +7,7 @@ let productsFiltered = [];
 $(".list-group").on("click", async (e) => {
   e.preventDefault();
   if (e.target.id === "") {
-    console.log("Null filter");
+    throw ("Null filter");
   } else if(e.target.id === 'allCategories'){
     //Me traigo todos los productos.
       productsFiltered = await getAllProducts();
@@ -20,10 +20,10 @@ $(".list-group").on("click", async (e) => {
     }
     //Me traigo los productos filtrados por categoría.
     productsFiltered = await getProductsByCategory(e.target.id);
-    if (productsFiltered.products.length) {
+    if (productsFiltered.products) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
       productsFiltered.products.forEach((product) => {
-        $(modelCardProduct(product, productsFiltered.nameCategory)).appendTo("#containerProducts");
+        $(modelCardProduct(product)).appendTo("#containerProducts");
       });
     }
   }
