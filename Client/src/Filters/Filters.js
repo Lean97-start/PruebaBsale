@@ -13,6 +13,7 @@ $(".list-group").on("click", async (e) => {
       productsFiltered = await getAllProducts();
       if (productsFiltered.length) {
         $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
+        document.getElementById("titleResult").style.display = "none";
         productsFiltered.forEach((product) => {
           $(modelCardProduct(product)).appendTo("#containerProducts");
         });
@@ -25,6 +26,8 @@ $(".list-group").on("click", async (e) => {
     productsFiltered = await getProductsByCategory(e.target.id);
     if (productsFiltered.products) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
+      document.getElementById("titleResult").style.display = "block";
+      $("#titleResult").text(`Resultados para: ${e.target.name}`);
       productsFiltered.products.forEach((product) => {
         $(modelCardProduct(product)).appendTo("#containerProducts");
       });

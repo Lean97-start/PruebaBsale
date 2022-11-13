@@ -16,8 +16,9 @@ $("#clickButtonSearch").on("click", async function (event) {
     productsSearched = await getProductsSearch(valueInputSearch.value);
     if (productsSearched.length) {
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
+      document.getElementById("titleResult").style.display = "block";
+      $("#titleResult").text(`Resultados para: ${valueInputSearch.value}`);
       $("#contentInputSearch").val("");
-      $("#titleResult").show();
       productsSearched.forEach((product) => {
         $(modelCardProduct(product)).appendTo("#containerProducts");
       });

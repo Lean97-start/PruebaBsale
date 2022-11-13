@@ -8,13 +8,16 @@ async function init(){
     let products = await getAllProducts();
     if(allCategories.length){
         allCategories.forEach(category => {
-            $(`<a id=${category.id} class="categoryLink">${category.name.toUpperCase()}</a>`).appendTo(".list-group")});
+            $(`<a id=${category.id} name=${category.name.toUpperCase()} class="categoryLink">${category.name.toUpperCase()}</a>`).appendTo(".list-group")});
+        if(products.length){
+            products.forEach(product => {
+                $(modelCardProduct(product)).appendTo("#containerProducts");
+            });
         }
-    if(products.length){
-        products.forEach(product => {
-            $(modelCardProduct(product)).appendTo("#containerProducts");
-        });
     }
 }
+$(window).load(function() {
+    $(".loader").fadeOut("slow");
+});
 
-document.addEventListener('DOMContentLoaded', init(), false); //Para realizar la inicializacion.
+document.addEventListener('load', init(), false); //Para realizar la inicializacion.

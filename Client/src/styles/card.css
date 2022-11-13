@@ -116,3 +116,12 @@
     font-weight: bold;
     font-size: larger;
 }
+
+/* Titulo de resultados */
+#titleResult{
+    margin-top: 5vh;
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 40px #fffafac7;
+    font-weight: bold;
+}
