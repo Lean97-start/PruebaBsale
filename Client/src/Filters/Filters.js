@@ -12,6 +12,8 @@ $(".list-group").on("click", async (e) => {
     //Me traigo todos los productos.
       productsFiltered = await getAllProducts();
       if (productsFiltered.length) {
+        $('.categoryLink').removeClass('selected');
+        $(`#${e.target.id}`).addClass('selected');
         $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
         document.getElementById("titleResult").style.display = "none";
         productsFiltered.forEach((product) => {
@@ -25,6 +27,8 @@ $(".list-group").on("click", async (e) => {
     //Me traigo los productos filtrados por categoría.
     productsFiltered = await getProductsByCategory(e.target.id);
     if (productsFiltered.products) {
+      $('.categoryLink').removeClass('selected');
+      $(`#${e.target.id}`).addClass('selected');
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
       document.getElementById("titleResult").style.display = "block";
       $("#titleResult").text(`Resultados para: ${e.target.name}`);
@@ -38,20 +42,6 @@ $(".list-group").on("click", async (e) => {
   }
 );
 
-$(document).ready(function(){
-
-	$('.ir-arriba').click(function(){
-		$('body, html').animate({
-			scrollTop: '0px'
-		}, 300);
-	});
-
-	$(window).scroll(function(){
-		if( $(this).scrollTop() > 0 ){
-			$('.ir-arriba').slideDown(300);
-		} else {
-			$('.ir-arriba').slideUp(300);
-		}
-	});
-
+$('.categoryLink').on('click', function(){
+  
 });

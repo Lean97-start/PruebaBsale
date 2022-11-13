@@ -43,3 +43,8 @@
     color: #ffffff;
     font-size: 2rem;
 }
+
+.selected{
+    background-color: #c27637;
+    color: black;
+}

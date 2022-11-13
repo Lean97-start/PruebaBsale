@@ -15,6 +15,7 @@ $("#clickButtonSearch").on("click", async function (event) {
   } else {
     productsSearched = await getProductsSearch(valueInputSearch.value);
     if (productsSearched.length) {
+      $(".categoryLink").removeClass('selected')
       $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
       document.getElementById("titleResult").style.display = "block";
       $("#titleResult").text(`Resultados para: ${valueInputSearch.value}`);
