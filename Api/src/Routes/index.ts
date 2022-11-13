@@ -6,9 +6,9 @@ import { routerSearch } from './searchProduct';
 
 const router = Router();
 
-router.use('/products', routerProduct);
-router.use('/filterProduct', routerFilterByCategoryProduct);
-router.use('/category', routerCategory);
-router.use('/search', routerSearch);
+router.use('/v1/products', routerProduct);
+router.use('/v1/filterProduct', routerFilterByCategoryProduct);
+router.use('/v1/category', routerCategory);
+router.use('/v1/search', routerSearch);
 
 export = {router};

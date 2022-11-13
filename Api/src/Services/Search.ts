@@ -16,7 +16,7 @@ export async function searchProducts(nameProduct: string) {
     }
     return productsSearched.length
       ? productsSearched
-      : { Error_message: "NOT_FOUND_PRODUCT" };
+      : { error_message: "NOT_FOUND_PRODUCT"};
   } catch (error) {
     throw error;
   }

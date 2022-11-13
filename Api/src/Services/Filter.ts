@@ -9,10 +9,10 @@ export async function filterByCategory(idCategory: string) {
     let products: any = await productsDB();
     let category: any = await categoriesDB();
     if (!idCategory) {
-      return { error_message: "ID_CATEGORY_NULL" };
+      return { error_messageNull: "ID_CATEGORY_NULL" };
     } else {
       productsCategory = productWithCategory(products, category, idCategory);
-      return productsCategory.length? { products: productsCategory }: { message: "NOT_FOUND_PRODUCTS_CATEGORY" };
+      return productsCategory.length? { products: productsCategory }: { error_message: "NOT_FOUND_PRODUCTS_CATEGORY" };
     }
   } catch (error) {
     throw error;
