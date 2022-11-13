@@ -13,15 +13,19 @@ html,
 body {
     height: 100%;
     width: 100vw;
+    background-color: #f5903d;
+
 }
 
 .main {
     display: grid;
     grid-template-columns: 20vw 80vw;
     background-color: #f5903d;
+    height: 100vh;
 }
 
 #titleProductos {
+    text-align: center;
     margin-top: 15vh;
     font-size: 4rem;
     color: #ffffff;

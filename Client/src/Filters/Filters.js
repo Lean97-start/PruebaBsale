@@ -12,6 +12,9 @@ $(".list-group").on("click", async (e) => {
     //Me traigo todos los productos.
       productsFiltered = await getAllProducts();
       if (productsFiltered.length) {
+        document.getElementById("containerProducts").style.display = "grid";
+        document.getElementById('divWithoutProduct').style.display = "none";
+        document.getElementById('divProductNotFound').style.display = "none";
         $('.categoryLink').removeClass('selected');
         $(`#${e.target.id}`).addClass('selected');
         $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
@@ -19,29 +22,30 @@ $(".list-group").on("click", async (e) => {
         productsFiltered.forEach((product) => {
           $(modelCardProduct(product)).appendTo("#containerProducts");
         });
-        $('body, html').animate({
-          scrollTop: '0px'
-        }, 300);
+        $('body, html').animate({scrollTop: '0px'}, 300);
       }
-    }
-    //Me traigo los productos filtrados por categoría.
-    productsFiltered = await getProductsByCategory(e.target.id);
-    if (productsFiltered.products) {
-      $('.categoryLink').removeClass('selected');
-      $(`#${e.target.id}`).addClass('selected');
-      $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
-      document.getElementById("titleResult").style.display = "block";
-      $("#titleResult").text(`Resultados para: ${e.target.name}`);
-      productsFiltered.products.forEach((product) => {
-        $(modelCardProduct(product)).appendTo("#containerProducts");
-      });
-      $('body, html').animate({
-        scrollTop: '0px'
-      }, 300);
+    }else if(e.target.id !== 'allCategories'){
+      //Me traigo los productos filtrados por categoría.
+      productsFiltered = await getProductsByCategory(e.target.id);
+      if (productsFiltered.products) {
+        document.getElementById("containerProducts").style.display = "grid";
+        document.getElementById('divWithoutProduct').style.display = "none";
+        document.getElementById('divProductNotFound').style.display = "none";
+        $('.categoryLink').removeClass('selected');
+        $(`#${e.target.id}`).addClass('selected');
+        $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards
+        document.getElementById("titleResult").style.display = "block";
+        $("#titleResult").text(`Resultados para: ${e.target.name}`);
+        productsFiltered.products.forEach((product) => {
+          $(modelCardProduct(product)).appendTo("#containerProducts");
+        });
+        $('body, html').animate({scrollTop: '0px'}, 300);
+      }
+    }else{
+      $("#containerProducts").empty();
+      document.getElementById("containerProducts").style.display = "none";
+      document.getElementById('divProductNotFound').style.display = "none";
+      document.getElementById('divWithoutProduct').style.display = "block";
     }
   }
 );
-
-$('.categoryLink').on('click', function(){
-  
-});

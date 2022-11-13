@@ -127,3 +127,23 @@
     text-shadow: 1px 1px 40px #fffafac7;
     font-weight: bold;
 }
+
+/* SIN PRODUCTO y PRODUCTO NO ENCONTRADO */
+
+#divProductNotFound, #divWithoutProduct{
+    margin-top: 5rem;
+}
+
+
+#spanWithoutProduct, #spanProductNotFound{
+    margin-top: 21vh;
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 50px #fffafac7;
+    font-weight: bold;
+}
+
+#sinStock{
+    height: 14rem;
+    width: 14rem;
+}
