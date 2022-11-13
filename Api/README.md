@@ -105,7 +105,7 @@
         ```
 
 ### GET - Obtener una categoria por id.
-  Retorna la categoria existente en el sistema y lo devuelve. En el caso de no encotrar la categoria__, el backend retorna un mensaje de error.
+  Retorna la categoria existente en el sistema y lo devuelve. En el caso de no encotrar la categoria, el backend retorna un mensaje de error.
   
   - #### GET /v1/products/:id.
     - Parámetros:
@@ -134,7 +134,7 @@
          }
         ```
 ### POST - Buscar productos que coincidan con el nombre buscado.
-  Retorna los productos existente en el sistema que coincidan con el valor introducido por el usuario. Si no se pasa un valor por body, devuelve todos los productos del sistema. En el caso de no encotrar el producto, el backend retorna un mensaje de error.
+  Retorna los productos existente en el sistema que coincidan con el valor introducido por el usuario. Si no se pasa un valor por body, devuelve todos los productos del sistema. En el caso de no encontrar el producto, el backend retorna un mensaje de error.
   
   - #### POST /v1/search.
     - Parámetros:
@@ -180,8 +180,8 @@
          }
         ```
 
-### POST - Buscar productos que coincidan con el nombre buscado.
-  Retorna los productos existente en el sistema que coincidan con el valor introducido por el usuario. Si no se pasa un valor por body, devuelve todos los productos del sistema. En el caso de no encotrar el producto, el backend retorna un mensaje de error.
+### POST - Filtrar productos que coincidan con la categoria seleccionada.
+  Retorna los productos existente en el sistema que coincidan con el valor id pasado por body. Si no se pasa un valor por body, retorna un mensaje error. En el caso de no encontrar el producto, el backend retorna un mensaje de error.
   
   - #### POST /v1/filterProduct.
     - Parámetros:
