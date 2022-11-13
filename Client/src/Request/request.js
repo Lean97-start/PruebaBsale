@@ -1,4 +1,4 @@
-let HOST =" https://eccomercebsale.herokuapp.com" ;
+let HOST = "https://eccomercebsale.herokuapp.com" ;
 
 // Petición POST para traer los productos que tengan coincidencia con el valor que llega por parámetro.
 export async function getProductsSearch(valueSearch) {
