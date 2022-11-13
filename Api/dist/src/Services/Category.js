@@ -21,7 +21,7 @@ exports.categories = categories;
 function category(id) {
     return __awaiter(this, void 0, void 0, function* () {
         let category = yield (0, Category_1.categoryDB)(id);
-        return category ? category : { err: category };
+        return ((category) ? category : [{ id: 0, name: "CATEGORY_NOT_FOUND" }]);
     });
 }
 exports.category = category;

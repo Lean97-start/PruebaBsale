@@ -1,8 +1,8 @@
 import {Router}  from 'express';
 import { filterByCategory } from '../Controllers/Filters';
 
-const routerFilterProduct = Router()
+const routerFilterByCategoryProduct = Router()
 
-routerFilterProduct.post('/' , filterByCategory);
+routerFilterByCategoryProduct.post('/' , filterByCategory);
 
-export {routerFilterProduct}
+export {routerFilterByCategoryProduct}

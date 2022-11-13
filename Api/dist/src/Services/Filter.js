@@ -12,29 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.filterByCategory = void 0;
 const Category_1 = require("../Query/Category");
 const Products_1 = require("../Query/Products");
-//VER SI ES MEJOR ESTABLECER UNA INTERFAZ PARA LOS ERRORES.
+const FormatProduct_1 = require("./FormatProduct");
 function filterByCategory(idCategory) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let productsCategory = [];
             let products = yield (0, Products_1.productsDB)();
             let category = yield (0, Category_1.categoriesDB)();
-            let nameCategoryDB = "";
-            category.forEach((category) => {
-                if (category.id.toString() === idCategory) {
-                    nameCategoryDB = category.name;
-                }
-            });
             if (!idCategory) {
-                return ({ error_message: "ID_CATEGORY_NULL" });
+                return { error_message: "ID_CATEGORY_NULL" };
             }
             else {
-                products.forEach((product) => {
-                    if (product.category.toString() === idCategory) {
-                        productsCategory.push(product);
-                    }
-                });
-                return (products.length) ? { nameCategory: nameCategoryDB, products: productsCategory } : { message: "NOT_FOUND_PRODUCTS_CATEGORY" };
+                productsCategory = (0, FormatProduct_1.productWithCategory)(products, category, idCategory);
+                return productsCategory.length ? { products: productsCategory } : { message: "NOT_FOUND_PRODUCTS_CATEGORY" };
             }
         }
         catch (error) {

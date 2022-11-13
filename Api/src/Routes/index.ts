@@ -1,13 +1,13 @@
 import {Router} from 'express';
 import { routerCategory } from './Category';
-import { routerFilterProduct } from './filter_Products';
+import { routerFilterByCategoryProduct } from './filter_Products';
 import { routerProduct } from "./Products";
 import { routerSearch } from './searchProduct';
 
 const router = Router();
 
 router.use('/products', routerProduct);
-router.use('/filterProduct', routerFilterProduct);
+router.use('/filterProduct', routerFilterByCategoryProduct);
 router.use('/category', routerCategory);
 router.use('/search', routerSearch);
 

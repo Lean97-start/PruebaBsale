@@ -12,38 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchProducts = void 0;
 const Products_1 = require("../Query/Products");
 const Category_1 = require("./Category");
-function productWithCategory(products, responseCategories, nameProduct) {
-    let productsSearched = [];
-    if (nameProduct) {
-        products.forEach((product) => {
-            if (product.name.includes(nameProduct.toUpperCase())) {
-                responseCategories.forEach((category) => {
-                    if (category.id == 0) {
-                        return responseCategories;
-                    }
-                    else if (category.id === product.category) {
-                        product.nameCategory = category.name;
-                        productsSearched.push(product);
-                    }
-                });
-            }
-        });
-    }
-    else {
-        products.forEach((product) => {
-            responseCategories.forEach((category) => {
-                if (category.id == 0) {
-                    return responseCategories;
-                }
-                else if (category.id === product.category) {
-                    product.nameCategory = category.name;
-                    productsSearched.push(product);
-                }
-            });
-        });
-    }
-    return productsSearched;
-}
+const FormatProduct_1 = require("./FormatProduct");
 function searchProducts(nameProduct) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -51,11 +20,11 @@ function searchProducts(nameProduct) {
             let productsSearched;
             if (!nameProduct) {
                 let products = yield (0, Products_1.productsDB)();
-                productsSearched = productWithCategory(products, responseCategories);
+                productsSearched = (0, FormatProduct_1.productWithCategory)(products, responseCategories, false);
             }
             else {
                 let products = yield (0, Products_1.productsDB)();
-                productsSearched = productWithCategory(products, responseCategories, nameProduct);
+                productsSearched = (0, FormatProduct_1.productWithCategory)(products, responseCategories, false, nameProduct);
             }
             return productsSearched.length
                 ? productsSearched

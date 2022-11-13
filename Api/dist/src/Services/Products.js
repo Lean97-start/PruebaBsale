@@ -11,17 +11,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.product = exports.AllProducts = void 0;
 const Products_1 = require("../Query/Products");
+const FormatProduct_1 = require("./FormatProduct");
+const Category_1 = require("./Category");
 function AllProducts() {
     return __awaiter(this, void 0, void 0, function* () {
+        let productsSearched;
         let products = yield (0, Products_1.productsDB)();
-        return products ? products : { err: products };
+        let responseCategories = yield (0, Category_1.categories)();
+        productsSearched = (0, FormatProduct_1.productWithCategory)(products, responseCategories, false);
+        return productsSearched.length ? productsSearched : { Error_message: "NOT_FOUND_PRODUCT" };
     });
 }
 exports.AllProducts = AllProducts;
 function product(id) {
     return __awaiter(this, void 0, void 0, function* () {
+        let productSearched;
         let product = yield (0, Products_1.productDB)(id);
-        return product ? product : { err: product };
+        let responseCategories = yield (0, Category_1.categories)();
+        productSearched = (0, FormatProduct_1.productWithCategory)(product, responseCategories, false);
+        return productSearched.length ? productSearched : { Error_message: "NOT_FOUND_PRODUCT" };
     });
 }
 exports.product = product;

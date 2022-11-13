@@ -7,5 +7,5 @@ export async function categories(){
 
 export async function category(id: string){
     let category= await categoryDB(id);
-    return category? category: {err: category};
+    return ((category)? category: [{id: 0, name: "CATEGORY_NOT_FOUND"}])
 }

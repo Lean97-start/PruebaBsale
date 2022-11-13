@@ -1,36 +1,7 @@
 import { productsDB } from "../Query/Products";
-import { Category, ProductNameCategory } from "../interface/Product.Interface";
+import { ProductNameCategory } from "../interface/Product.Interface";
 import { categories } from "./Category";
-
-function productWithCategory(products: Array<ProductNameCategory>, responseCategories: any, nameProduct?: string) {
-  let productsSearched: Array<ProductNameCategory> = [];
-  if (nameProduct) {
-    products.forEach((product: ProductNameCategory) => {
-      if (product.name.includes(nameProduct.toUpperCase())) {
-        responseCategories.forEach((category: Category) => {
-          if (category.id == 0) {
-            return responseCategories;
-          } else if (category.id === product.category) {
-            product.nameCategory = category.name;
-            productsSearched.push(product);
-          }
-        });
-      }
-    });
-  } else {
-    products.forEach((product: ProductNameCategory) => {
-      responseCategories.forEach((category: Category) => {
-        if (category.id == 0) {
-          return responseCategories;
-        } else if (category.id === product.category) {
-          product.nameCategory = category.name;
-          productsSearched.push(product);
-        }
-      });
-    });
-  }
-  return productsSearched;
-}
+import { productWithCategory } from "./FormatProduct";
 
 export async function searchProducts(nameProduct: string) {
   try {
@@ -38,10 +9,10 @@ export async function searchProducts(nameProduct: string) {
     let productsSearched: Array<ProductNameCategory>;
     if (!nameProduct) {
       let products: any = await productsDB();
-      productsSearched = productWithCategory(products, responseCategories,);
+      productsSearched = productWithCategory(products, responseCategories, false);
     } else {
       let products: any = await productsDB();
-      productsSearched = productWithCategory(products, responseCategories, nameProduct);
+      productsSearched = productWithCategory(products, responseCategories, false , nameProduct);
     }
     return productsSearched.length
       ? productsSearched
