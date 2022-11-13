@@ -1,5 +1,3 @@
-
-// let HOST =" https://eccomercebsale.herokuapp.com" || "http://localhost:4105";
 let HOST =" https://eccomercebsale.herokuapp.com" ;
 
 export async function getProductsSearch(valueSearch) {
