@@ -4,7 +4,6 @@ import { AllProducts, product } from "../Services/Products";
 // Controller que me permite obtener todos los productos existentes en el sistema.
 export const getAllProducts = async (req: Request, res: Response) => {
     let products: any = await AllProducts();
-    console.log(products)
     if(products.error_message){return res.status(404).send(products);} 
     return res.send(products);
 };

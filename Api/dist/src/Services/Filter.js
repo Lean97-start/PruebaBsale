@@ -10,22 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filterByCategory = void 0;
-const Category_1 = require("../Query/Category");
-const Products_1 = require("../Query/Products");
-const FormatProduct_1 = require("./FormatProduct");
+const Filter_1 = require("../Query/Filter");
 // Función encargada de traer los productos relacionados a una categoria.
 function filterByCategory(idCategory) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let productsCategory = [];
-            let products = yield (0, Products_1.productsDB)();
-            let category = yield (0, Category_1.categoriesDB)();
             if (!idCategory) {
+                //Si no se pasa un numero de id, se devuelve error.
                 return { error_messageNull: "ID_CATEGORY_NULL" };
             }
             else {
-                productsCategory = (0, FormatProduct_1.productWithCategory)(products, category, idCategory);
-                return productsCategory.length ? { products: productsCategory } : { error_message: "NOT_FOUND_PRODUCTS_CATEGORY" };
+                let products = yield (0, Filter_1.filterByCategoryDB)(parseInt(idCategory));
+                let productsFiltereds = products;
+                return productsFiltereds.length ? { products: productsFiltereds } : { error_message: "NOT_FOUND_PRODUCTS_CATEGORY" };
             }
         }
         catch (error) {

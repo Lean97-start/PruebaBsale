@@ -13,16 +13,24 @@ exports.filterByCategory = void 0;
 const Filter_1 = require("../Services/Filter");
 // Controller para filtrar por categoria 
 const filterByCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { idCategory } = req.body;
-    const productsCategory = yield (0, Filter_1.filterByCategory)(idCategory);
-    if (productsCategory.error_messageNull) {
-        res.status(400).send(productsCategory);
+    try {
+        if (!req.body.hasOwnProperty('idCategory')) {
+            return res.status(400).json({ error_message: "NOT_ALLOWED_NULL_ID" });
+        }
+        const { idCategory } = req.body;
+        const productsCategory = yield (0, Filter_1.filterByCategory)(idCategory);
+        if (productsCategory.error_messageNull) {
+            return res.status(400).send(productsCategory);
+        }
+        // Valida la existencia de un mensaje de idCategory igual a null
+        if (productsCategory.error_message) {
+            return res.status(404).send(productsCategory);
+        }
+        //Valida la existencia de un error de producto no encontrado.
+        return res.send(productsCategory);
     }
-    //Valida la existencia de un mensaje de idCategory igual a null
-    if (productsCategory.error_message) {
-        res.status(404).send(productsCategory);
+    catch (error) {
+        return res.status(500).json({ error_message: "Error_server" });
     }
-    //Valida la existencia de un error de producto no encontrado.
-    res.send(productsCategory);
 });
 exports.filterByCategory = filterByCategory;

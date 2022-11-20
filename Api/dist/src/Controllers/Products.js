@@ -13,15 +13,23 @@ exports.getProduct = exports.getAllProducts = void 0;
 const Products_1 = require("../Services/Products");
 // Controller que me permite obtener todos los productos existentes en el sistema.
 const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send(yield (0, Products_1.AllProducts)());
+    let products = yield (0, Products_1.AllProducts)();
+    if (products.error_message) {
+        return res.status(404).send(products);
+    }
+    return res.send(products);
 });
 exports.getAllProducts = getAllProducts;
 // Controller que me permite obtener un producto con id que coincida con el id del producto pasado por params.
 const getProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.params === null)
-        res.status(400).json({ err: "BAD_REQUEST" });
+        res.status(400).json({ error_message: "NOT_ALLOWED_NULL_ID" });
     const { id } = req.params;
     let response = yield (0, Products_1.product)(id);
-    res.send(response);
+    if (response.error_message) {
+        return res.status(404).send(response);
+    }
+    // Valida la existencia de un mensaje de idCategory igual a null
+    return res.send(response);
 });
 exports.getProduct = getProduct;

@@ -15,8 +15,9 @@ const Category_1 = require("../Query/Category");
 function categories() {
     return __awaiter(this, void 0, void 0, function* () {
         let categories = yield (0, Category_1.categoriesDB)();
+        let categoriesSearched = categories;
         //Si no encuentra categorias, retorna error    
-        return ((categories) ? categories : [{ id: 0, name: "CATEGORIES_NOT_FOUND" }]);
+        return ((categoriesSearched.length) ? categoriesSearched : { error_message: "CATEGORIES_NOT_FOUND" });
     });
 }
 exports.categories = categories;
@@ -24,8 +25,9 @@ exports.categories = categories;
 function category(id) {
     return __awaiter(this, void 0, void 0, function* () {
         let category = yield (0, Category_1.categoryDB)(id);
-        //Si no encuentra la categoria especificada, retorna error    
-        return ((category) ? category : [{ id: 0, name: "CATEGORY_NOT_FOUND" }]);
+        let categorySearched = category;
+        //Si no encuentra la categoria especificada, retorna error   
+        return ((categorySearched.length) ? categorySearched : { error_message: "CATEGORY_NOT_FOUND" });
     });
 }
 exports.category = category;

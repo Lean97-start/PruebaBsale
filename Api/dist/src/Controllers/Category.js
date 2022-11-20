@@ -13,17 +13,22 @@ exports.getCategory = exports.getCategories = void 0;
 const Category_1 = require("../Services/Category");
 // Controller para obtener las categorias existentes en el sistema.
 const getCategories = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send(yield (0, Category_1.categories)());
+    let categoriesResponse = yield (0, Category_1.categories)();
+    if (categoriesResponse.error_message) {
+        return res.status(404).send(categoriesResponse);
+    }
+    //Valida la existencia de un error de producto no encontrado.
+    res.send(categoriesResponse);
 });
 exports.getCategories = getCategories;
 // Controller para obtener una categoria por ID enviada por params.
 const getCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.params === null)
-        res.status(400).json({ err: "BAD_REQUEST" });
+        res.status(400).json({ error_messagge: "NOT_ALLOWED_NULL_ID" });
     const { id } = req.params;
     let response = yield (0, Category_1.category)(id);
-    if (!response.length)
-        res.status(400).send({ err: "ERROR_ID_CATEGORY" });
-    res.send(response);
+    if (response.error_message)
+        return res.status(404).send(response);
+    return res.send(response);
 });
 exports.getCategory = getCategory;

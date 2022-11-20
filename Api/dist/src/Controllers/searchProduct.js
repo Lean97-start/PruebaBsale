@@ -13,8 +13,17 @@ exports.searchProducts = void 0;
 const Search_1 = require("../Services/Search");
 // Controller que me permite obtener productos con nombre coincidente con el nameProduct pasado por body.
 const searchProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { nameProduct } = req.body;
-    let responseSearch = yield (0, Search_1.searchProducts)(nameProduct);
-    res.send(responseSearch).sendStatus;
+    try {
+        const { nameProduct } = req.body;
+        let responseSearch = yield (0, Search_1.searchProducts)(nameProduct);
+        if (responseSearch.error_message) {
+            return res.status(404).send(responseSearch);
+        }
+        // Valida la existencia de un mensaje de idCategory igual a null
+        return res.send(responseSearch).sendStatus;
+    }
+    catch (error) {
+        return res.status(500).json({ error_message: " Error_Server " });
+    }
 });
 exports.searchProducts = searchProducts;

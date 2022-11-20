@@ -48,6 +48,7 @@ function initDB() {
         }
         catch (e) {
             console.log(e);
+            initDB();
         }
     });
 }
