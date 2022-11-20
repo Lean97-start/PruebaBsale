@@ -129,8 +129,14 @@
 
 @media screen and (max-width: 768px) and (orientation: landscape) {
     #ulDropdownMenu {
-        overflow-y: scroll;
-        scroll-behavior: smooth;
+        overflow: scroll;
+        height: 8rem;
+    }
+}
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    #ulDropdownMenu {
+        overflow: scroll;
+        height: 8rem;
     }
 }
 
