@@ -1,5 +1,5 @@
 /* CARD */
-@import '../styles/card.css'; 
+@import '../styles/card.css';
 
 /* NAVBAR */
 @import '../styles/navBar.css';
@@ -30,13 +30,189 @@ body {
     text-shadow: 1px 2px 5px #fffafac7;
 }
 
-#logoBsale{
+#logoBsale {
     position: relative;
     height: 2.5rem;
     padding-left: 3rem;
 }
 
-#loadingGIF{
-    margin-top: 7rem;
+#loadingGIF {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
     object-fit: cover;
+    align-items: center;
+}
+
+#imgLoading{
+    height: 35vh;
+    width: 20vw;
+}
+
+#spanLoading{
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 2px 25px #fffafac7;
+}
+
+
+/* RESPONSIVE */
+
+/* Responsive para pantallas menores a 768px*/
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        background-color: #006d77;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        background-color: #006d77;
+        height: 100vh;
+    }
+
+    #titleProductos {
+        text-align: center;
+        margin-top: 12vh;
+        font-size: 3.5rem;
+        color: #ffffff;
+        text-shadow: 1px 2px 5px #fffafac7;
+    }
+
+    #logoBsale {
+        padding-left: 1rem;
+    }
+
+    #loadingGIF {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7rem;
+        object-fit: cover;
+    }
+
+    #imgLoading{
+        height: 30vh;
+        width: 50vw;
+    }
+
+    #spanLoading{
+        text-align: center;
+        margin-top: 2vh;
+        font-size: 1.5rem;
+        text-shadow: 1px 2px 25px #fffafac7;
+    }
+}
+
+/* Responsive para pantallas menores a 768px de forma horizontal*/
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    #titleProductos {
+        margin-top: 20vh;
+    }
+}
+
+/* Responsive para pantallas mayores a 769px y menores a 1280px*/
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+
+    html,
+    body {
+        background-color: #006d77;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        background-color: #006d77;
+        height: 100vh;
+    }
+
+    #titleProductos {
+        text-align: center;
+        margin-top: 10vh;
+        font-size: 3.5rem;
+        color: #ffffff;
+        text-shadow: 1px 2px 5px #fffafac7;
+    }
+
+    #logoBsale {
+        padding-left: 1rem;
+    }
+
+    #loadingGIF {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7rem;
+        object-fit: cover;
+    }
+
+    #imgLoading{
+        height: 30vh;
+        width: 50vw;
+    }
+
+    #spanLoading{
+        text-align: center;
+        margin-top: 2vh;
+        font-size: 1.5rem;
+        text-shadow: 1px 2px 25px #fffafac7;
+    }
+}
+
+/* Responsive para pantallas mayores a 768px y menores a 1280px de forma horizontal*/
+@media screen and (min-width: 769px) and (max-width: 1280px) and (orientation: landscape) {
+    #titleProductos {
+        margin-top: 25vh;
+    }
+    #loadingGIF {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        object-fit: cover;
+    }
+
+    #imgLoading{
+        height: 30vh;
+        width: 20vw;
+    }
+
+    #spanLoading{
+        text-align: center;
+        margin-top: 1vh;
+        font-size: 1.5rem;
+        text-shadow: 1px 2px 25px #fffafac7;
+    }
+
+}
+
+/* Responsive para pantallas mayores a 1000px y menores a 1280px de forma horizontal*/
+@media screen and (min-width: 1000px) and (max-width: 1280px) and (orientation: landscape) {
+    #loadingGIF {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5rem;
+        object-fit: cover;
+    }
+
+    #imgLoading{
+        height: 40vh;
+        width: 30vw;
+    }
+
+    #spanLoading{
+        text-align: center;
+        margin-top: 2vh;
+        font-size: 1.5rem;
+        text-shadow: 1px 2px 25px #fffafac7;
+    }
 }

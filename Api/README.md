@@ -30,13 +30,12 @@
       ```
         [
           {
-            "category": number
-            "discount": number
-            "id": number
-            "name": string
-            "nameCategory": string
-            "price": number
+            "id_prod": number
+            "product_name": string
             "url_image": string
+            "id_cat": number
+            "cat_name": string
+            "price": number
           }
         ]
       ```
@@ -44,7 +43,7 @@
        
         ```
           {
-            Error_message: "NOT_FOUND_PRODUCT" 
+            error_message: "NOT_FOUND_PRODUCT" 
           }
         ```
 
@@ -57,20 +56,19 @@
     - Respuesta de parámetro igual a "null": (400: Bad Request)
       ```
         {
-          err: "BAD_REQUEST"
+          error_message: "NOT_ALLOWED_NULL_ID"
         }
       ```
     - Respuesta de <strong>Éxito</strong>: (200: OK)
       ```
         [
           {
-            "category": number,
-            "discount": number,
-            "id": number,
-            "name": string,
-            "nameCategory": string,
-            "price": number,
+            "id_prod": number
+            "product_name": string
             "url_image": string
+            "id_cat": number
+            "cat_name": string
+            "price": number
           }
         ] 
       ```
@@ -78,7 +76,7 @@
        
         ```
           {
-            Error_message: "NOT_FOUND_PRODUCT" 
+            error_message: "NOT_FOUND_PRODUCT" 
           }
         ```
 ### GET - Obtener todas las categorias.
@@ -101,20 +99,20 @@
        
         ```
           {
-            Error_message: "NOT_FOUND_PRODUCT" 
+            Error_message: "CATEGORIES_NOT_FOUND" 
           }
         ```
 
 ### GET - Obtener una categoria por id.
   Retorna la categoria existente en el sistema y lo devuelve. En el caso de no encotrar la categoria, el backend retorna un mensaje de error.
   
-  - #### GET /v1/products/:id.
+  - #### GET /v1/category/:id.
     - Parámetros:
       * id: id del producto.
     - Respuesta de parámetro igual a "null": (400: Bad Request)
       ```
         {
-          err: "BAD_REQUEST"
+          error_message: "NOT_ALLOWED_NULL_ID"
         }
       ```
     - Respuesta de <strong>Éxito</strong>: (200: OK)
@@ -130,9 +128,8 @@
        
         ```
          {
-          "id": 0,
-          "name": "CATEGORY_NOT_FOUND"
-         }
+            error_message: "CATEGORY_NOT_FOUND"
+          }
         ```
 ### POST - Buscar productos que coincidan con el nombre buscado.
   Retorna los productos existente en el sistema que coincidan con el valor introducido por el usuario. Si no se pasa un valor por body, devuelve todos los productos del sistema. En el caso de no encontrar el producto, el backend retorna un mensaje de error.
@@ -149,13 +146,12 @@
       ```
         [
           {
-            "category": number,
-            "discount": number,
-            "id": number,
-            "name": string,
-            "nameCategory": string,
-            "price": number,
+            "id_prod": number
+            "product_name": string
             "url_image": string
+            "id_cat": number
+            "cat_name": string
+            "price": number
           }
         ] 
       ```
@@ -163,13 +159,12 @@
       ```
         [
           {
-            "category": number,
-            "discount": number,
-            "id": number,
-            "name": string,
-            "nameCategory": string,
-            "price": number,
+            "id_prod": number
+            "product_name": string
             "url_image": string
+            "id_cat": number
+            "cat_name": string
+            "price": number
           }
         ] 
       ```
@@ -177,7 +172,14 @@
        
         ```
          {
-           "Error_message": "NOT_FOUND_PRODUCT"
+           "error_message": "NOT_FOUND_PRODUCT"
+         }
+        ```
+     - Respuesta de <strong>Error de server</strong>: (500: Internal Server Error)
+       
+        ```
+         {
+           "error_message": "Error_server"
          }
         ```
 
@@ -202,13 +204,12 @@
       ```
         [
           {
-            "category": number,
-            "discount": number,
-            "id": number,
-            "name": string,
-            "nameCategory": string,
-            "price": number,
+            "id_prod": number
+            "product_name": string
             "url_image": string
+            "id_cat": number
+            "cat_name": string
+            "price": number
           }
         ] 
       ```
@@ -217,5 +218,12 @@
         ```
          {
             "error_message": "NOT_FOUND_PRODUCTS_CATEGORY" 
+          }
+        ```
+      - Respuesta de <strong>Error de server</strong>: (500: Internal Server Error)
+        
+        ```
+          {
+            "Error_message": "Error_server"
           }
         ```

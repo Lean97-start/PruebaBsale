@@ -10,6 +10,9 @@ function displayGrid(){
   document.getElementById('divProductNotFound').style.display = "none";
   document.getElementById('divWithoutProduct').style.display = "none";     
   $("#containerProducts").empty(); //Vacío el contenedor para cargar las nuevas cards.
+  $(`#btnMenu`).addClass('collapsed');
+  $(`#btnMenu`).attr("aria-expanded", "false");
+  $('#navbarSupportedContent').removeClass('show');
 }
 
 // Función para mostrar mensajes de error, vaciar el contenedor y ocultar el catálogo de productos.
@@ -20,6 +23,9 @@ function displayMessageError(){
   document.getElementById("titleResult").style.display = "none";
   document.getElementById('divWithoutProduct').style.display = "none";
   document.getElementById('divProductNotFound').style.display = "block";
+  $(`#btnMenu`).addClass('collapsed');
+  $(`#btnMenu`).attr("aria-expanded", "false");
+  $('#navbarSupportedContent').removeClass('show');
 }
 
 
@@ -52,6 +58,9 @@ $("#clickButtonSearch").on("click", async function (event) {
       }  
       
     } catch (error) {
+      $(`#btnMenu`).addClass('collapsed');
+      $(`#btnMenu`).attr("aria-expanded", "false");
+      $('#navbarSupportedContent').removeClass('show');
       displayMessageError(); 
     }
   }

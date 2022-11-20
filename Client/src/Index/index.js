@@ -7,11 +7,13 @@ function displayGrid(){
     document.getElementById('divProductNotFound').style.display = "none";
     document.getElementById('divWithoutProduct').style.display = "none";
     document.getElementById('loadingGIF').style.display = "none";
+    document.getElementById('spanLoading').style.display = "none";
 }
 
 // Función para mostrar mensajes de error, vaciar el contenedor y ocultar el catálogo de productos.
 function displayMessageError(){
     document.getElementById('loadingGIF').style.display = "none";
+    document.getElementById('spanLoading').style.display = "none";
     document.getElementById("containerProducts").style.display = "none";
     document.getElementById('divProductNotFound').style.display = "none";
     document.getElementById('divWithoutProduct').style.display = "block";
@@ -26,18 +28,23 @@ async function init(){
             displayGrid();
             allCategories.forEach(category => {
                 // Renderizo todas las categorias existente.
-                $(`<a id=${category.id} name=${category.name.toUpperCase()} class="categoryLink">${category.name.toUpperCase()}</a>`).appendTo(".list-group")});
+                $(`<a id=${category.id} name=${category.name.toUpperCase()} class="categoryLink">${category.name.toUpperCase()}</a>`).appendTo(".list-group")
+                $(`<li id=${category.id} class="categoryLink" name=${category.name.toUpperCase()}><a id=${category.id} class="itemLinkCategory" name=${category.name.toUpperCase()}>${category.name.toUpperCase()}</a></li>`).appendTo(".dropdown-menu")});
             if(products.length){
                 products.forEach(product => {
                     // Renderizo los productos existentes.
                     $(modelCardProduct(product)).appendTo("#containerProducts");
                 });
+            }else{
+                allCategories = [];
             }
         } 
     } catch (error) {
         // Espera dos segundos para restablecer la conexión en caso de fallar y lo vuelve a intentar.
         setTimeout(() => {
             displayMessageError();
+            $(".list-group").empty()
+            $("#containerProducts").empty()
             init();
           }, "2000");
     }

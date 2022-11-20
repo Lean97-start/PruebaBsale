@@ -20,16 +20,73 @@
 }
 
 #clickButtonSearch{
-    border: 1px solid #495250;
+    border: 1px solid #717a78;
     color: #003844;
 }
 
 #clickButtonSearch:hover{
-    background-color: #4E6560;
-    border: 1px solid #495250;
+    background-color: #006d77;
+        border: 1px solid #063d49;
     color: #fefae0;
 }
 
 .navbar-brand{
     padding-left: 5%;
+}
+
+
+/* RESPONSIVE */
+
+
+/* Responsive para pantallas menores a 768px*/
+@media screen and (max-width: 768px) {
+    #divNav{
+        padding: 0;
+    }
+
+    #navbarSupportedContent{
+        flex-direction: column;
+        margin-top: 1rem;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    #contentInputSearch{
+        width: 70vw;
+    }
+
+    #formInputSearch{
+        padding: 0;
+    }
+
+    #btnMenu{
+        margin-right: 1rem;
+    }
+}
+
+
+/* Responsive para pantallas mayores a 769px y menores a 1280px*/
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    #divNav{
+        padding: 0;
+    }
+
+    #navbarSupportedContent{
+        flex-direction: column;
+        margin-top: 1rem;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    #contentInputSearch{
+        width: 70vw;
+    }
+
+    #formInputSearch{
+        padding: 0;
+    }
+
+    #btnMenu{
+        margin-right: 1rem;
+    }
 }

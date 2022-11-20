@@ -1,15 +1,12 @@
 // Interface parametrizable de producto.
-interface Product {
-    id: number;
-    name: string;
+interface ProductWithCategory {
+    id_prod: number;
+    product_name: string;
     url_image: string;
     price: number;
-    discount: number;
-    category: number;
-}
-// Interface parametrizable de producto con propiedad nameCategory
-interface ProductNameCategory extends Product{
-    nameCategory?: string;
+    id_cat: number;
+    cat_name: string;
+    discount?: number;
 }
 
 // Interface parametrizable de categoria.
@@ -18,4 +15,4 @@ interface Category{
     name: string
 }
 
-export {Product, ProductNameCategory, Category}
+export { ProductWithCategory, Category }
