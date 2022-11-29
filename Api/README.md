@@ -1,7 +1,7 @@
 # *Tienda online - Back-end*
 
 <p align="left">
-  <img height="100" src="https://http2.mlstatic.com/storage/mshops-appearance-api/images/97/221803697/logo-2020110321053553500.png" />
+  <img height="100" src="../logo-2020110321053553500.png" />
 </p>
 
 ## *Objetivos del Proyecto*
