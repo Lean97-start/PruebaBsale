@@ -1,24 +1,34 @@
-# Tienda online BSale
+# *Tienda online - Back-end*
 
 <p align="left">
-  <img height="150" src="https://dojiw2m9tvv09.cloudfront.net/4/8/logobsale-open-graph82391900.jpg" />
+  <img height="100" src="https://http2.mlstatic.com/storage/mshops-appearance-api/images/97/221803697/logo-2020110321053553500.png" />
 </p>
 
-## Objetivos del Proyecto
+## *Objetivos del Proyecto*
 
 - Construir una tienda online de diversos productos, diferenciados por categorias y con la posibilidad de buscar por nombre de producto.
 - Garantizar una buena experiencia de usuario a traves de una navegación intuitiva.
 - Aplicar buenas practicas y modularización haciendo flexible el código.
+- Que sea totalmente responsive.
+- Formato PC, Tablet y mobile.
+---
+### *Tecnologías implementadas:*
+- <strong>Frontend</strong>
+  - #### HTML5, CSS3, JavaScript, Jquery, Bootstrap
+- <strong>Backend</strong>
+  - #### NodeJs, TypeScript, Express, MySql
+---
+## *Link Deploy:*
+- <a href="https://ventasbsale.vercel.app">Tienda Virtual</a>
 
-### Tecnologías implementadas:
-- [ ] <strong>Frontend</strong>
-  - ##### HTML5, CSS3, JavaScript, Jquery, Bootstrap
-- [ ] <strong>Backend</strong>
-  - ##### NodeJs, TypeScript, Express, MySql
+---
+## *Puesta en marcha:*
+- Ejecutar npm install para instalar las dependencias.
+- Ejecutar npm run postinstall.
+- Ejecutar npm start.
 
-## Link Deploy:
-- <a href="https://ventasbsale.vercel.app">Tienda BSale</a>
-## Endpoints
+---
+## *Endpoints*
   ### GET - Obtener todos los productos.
   Retorna todos los productos existentes en el sistema y devuelve un arreglo con los resultados. En el caso de no encontrar ningún producto, el backend retorna un mensaje de error y el Fronten muestra el mensaje en pantalla de "Sin Productos".
   

@@ -12,7 +12,7 @@ export function modelCardProduct(product) {
                 <span class="cardTitleCategory">${product.cat_name.toUpperCase()}</span>
               </div>
               <div id="divButton">
-                <button id="buttonCardCompra" type="button" class="">Comprar</button>
+                <button id="buttonCardCompra" type="button" onClick={alert("Funcionalidad_pendiente")} class="buttonAction"> Comprar </button>
               </div>
           </div>`
 }

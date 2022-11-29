@@ -32,8 +32,10 @@ body {
 
 #logoBsale {
     position: relative;
-    height: 2.5rem;
-    padding-left: 3rem;
+    height: 3rem;
+    width: 12rem;
+    object-fit: contain;
+    padding-left: 4rem;
 }
 
 #loadingGIF {
